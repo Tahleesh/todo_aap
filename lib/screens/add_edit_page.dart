@@ -23,21 +23,16 @@ class AddEditPage extends StatelessWidget {
         children: [
           TextField(
             controller: txt,
-            decoration: InputDecoration(
-              labelText: "Enter Task",
-            ),
+            decoration: InputDecoration(labelText: "Enter Task"),
           ),
           ElevatedButton(
             onPressed: () {
               String title = txt.text;
 
-              Navigator.pop(context, {
-                "title": title,
-                "index": index,
-              });
+              Navigator.pop(context, {"title": title, "index": index});
             },
             child: Text("Save"),
-          )
+          ),
         ],
       ),
     );

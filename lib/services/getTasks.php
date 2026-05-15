@@ -2,15 +2,21 @@
 header("content-type:application/json");
 header("Access-Control-Allow-Origin: *");
 
-$conn = mysqli_connect("localhost","root","","todolist");
+$conn = mysqli_connect("localhost","root","","todo_app");
 
-$result = mysqli_query($conn,"SELECT * FROM tasks");
+$user_id = $_GET['user_id'];
 
-$tasks = [];
+$result = mysqli_query(
+$conn,
+"SELECT * FROM tasks WHERE user_id='$user_id'"
+);
+
+$data = [];
 
 while($row = mysqli_fetch_assoc($result)){
-    $tasks[] = $row;
+    $data[] = $row;
 }
 
-echo json_encode($tasks);
+echo json_encode($data);
+
 ?>

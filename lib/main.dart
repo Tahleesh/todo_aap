@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page.dart';
+import 'package:provider/provider.dart';
+import 'screens/login_page.dart';
+import 'providers/user_provider.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+    ChangeNotifierProvider(
+      create: (_) => UserProvider(),
+
+      child: MaterialApp(debugShowCheckedModeBanner: false, home: LoginPage()),
     ),
   );
 }
